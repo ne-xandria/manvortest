@@ -1,10 +1,7 @@
 import { PrismaClient } from '@prisma/client'
-import { PrismaBetterSqlite3 } from '@prisma/adapter-better-sqlite3'
 import bcrypt from 'bcryptjs'
-import path from 'path'
 
-const adapter = new PrismaBetterSqlite3({ url: path.join(process.cwd(), 'dev.db') })
-const prisma = new PrismaClient({ adapter } as any)
+const prisma = new PrismaClient()
 
 async function main() {
   const hashedPassword = await bcrypt.hash('admin123', 10)

@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
 
+export const dynamic = 'force-dynamic'
+
 function generateOrderNumber() {
   const year = new Date().getFullYear()
   const random = Math.floor(Math.random() * 90000) + 10000
